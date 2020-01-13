@@ -19,6 +19,10 @@ class Board extends Component {
     this.send_request = this.send_request.bind(this);
   }
 
+  componentDidMount() {
+    this.setState({text_field: this.state.text_field + 'Enter ports of player one and two and hit play'});
+  }
+
   handleChange(e) {
     const { name, value } = e.target;
     this.setState({ [name]: value });
