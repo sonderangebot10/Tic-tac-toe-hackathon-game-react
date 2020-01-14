@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { CssBaseline } from '@material-ui/core';
+//import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+//import $ from 'jquery';
 
 class Board extends Component {
   constructor(props){
@@ -126,44 +130,80 @@ class Board extends Component {
   render() {
     const { port1, port2, playing, speed, numberG } = this.state;
     return (
-        <div>
-          Turn {this.state.turn}
+        <div class="container" style={{marginTop: 20, marginBottom: 20, width: 800, color: 'white', fontSize: 25, fontWeight:'bold'}}>
+          <div class="row">
+            <div class="col-4 text-center">
+              Player X <div/>{this.state.wins[0]}
+            </div>
+            <div class="col-4 text-center">
+              Turn <div/> {this.state.turn}
+            </div>
+            
+            <div class="col-4 text-center">
+              Player O <div/> {this.state.wins[1]}
+            </div>
+          </div>
+          
           <hr/>
-          {this.state.board[0] + ' ' + this.state.board[1] + ' ' + this.state.board[2]}
-          <div/>
-          {this.state.board[3] + ' ' + this.state.board[4] + ' ' + this.state.board[5]}
-          <div/>
-          {this.state.board[6] + ' ' + this.state.board[7] + ' ' + this.state.board[8]}
+          <div style={{fontSize: 60, WebkitUserSelect:'none'}}>
+            {this.state.board[0] + ' ' + this.state.board[1] + ' ' + this.state.board[2]}
+            <div/>
+            {this.state.board[3] + ' ' + this.state.board[4] + ' ' + this.state.board[5]}
+            <div/>
+            {this.state.board[6] + ' ' + this.state.board[7] + ' ' + this.state.board[8]}
+          </div>
           <hr/>
-          <form name="form" onSubmit={this.handleSubmit}>
-                    <div className='form-group'>
-                        <label htmlFor="username">Port 1 (X) </label>
-                        <input type="text" className="form-control" name="port1" disabled={playing} value={port1} onChange={this.handleChange} />
-                    </div>
-                    <div className='form-group'>
-                        <label htmlFor="password">Port 2 (O) </label>
-                        <input type="text" className="form-control" name="port2" disabled={playing} value={port2} onChange={this.handleChange} />
-                    </div>
-                    <div className='form-group'>
-                        <label htmlFor="password">Request speed(ms): </label>
-                        <input type="text" className="form-control" name="speed" disabled={playing} value={speed} onChange={this.handleChange} />
-                    </div>
-                    <div className='form-group'>
-                        <label htmlFor="password">Number of games: </label>
-                        <input type="text" className="form-control" name="numberG" disabled={playing} value={numberG} onChange={this.handleChange} />
-                    </div>
+            <form name="form" onSubmit={this.handleSubmit} style={{fontSize: 14}}>
+              <div className='form-group'>
+                <div class="row">
+                <div class="col-2 text-left">
+                    <label htmlFor="username">Port 1 (X)</label>
+                  </div>
+                  <div class="col-10 text-center">
+                    <input type="text" className="form-control" name="port1" disabled={playing} value={port1} onChange={this.handleChange} />
+                  </div>
+                </div>
+              </div>
+              <div className='form-group'>
+                <div class="row">
+                <div class="col-2 text-left">
+                    <label htmlFor="password">Port 2 (O)</label>
+                  </div>
+                  <div class="col-10 text-center">
+                    <input type="text" className="form-control" name="port1" disabled={playing} value={port2} onChange={this.handleChange} />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-2 text-left">
+                    <label htmlFor="password">Request speed(ms): </label>
+                  </div>
+                  <div class="col-10 text-center">
+                  <div className='form-group'>
+                    <input type="text" className="form-control" name="speed" disabled={playing} value={speed} onChange={this.handleChange} />
+                  </div>
+                </div>
+              </div>
 
-                    <Button variant="contained" color="secondary" disabled={playing} onClick={this.handlePlay} className="btn btn-primary" style={{margin: 10}}>Play</Button>
-                    <Button variant="contained" color="secondary" onClick={this.handleReset} className="btn btn-primary" style={{margin: 10}}>Reset</Button>
+              <div class="row">
+                  <div class="col-2 text-left">
+                    <label htmlFor="password">Number of games: </label>
+                  </div>
+                  <div class="col-10 text-center">
+                  <div className='form-group'>
+                    <input type="text" className="form-control" name="numberG" disabled={playing} value={numberG} onChange={this.handleChange} />
+                  </div>
+                </div>
+              </div>
 
-                    <div>Player 1 wins: {this.state.wins[0]}</div>
-                    <div>Player 2 wins: {this.state.wins[1]}</div>
-                </form>
+              <Button variant="contained" color="secondary" disabled={playing} onClick={this.handlePlay} className="btn btn-primary" style={{margin: 10}}>Play</Button>
+              <Button variant="contained" color="secondary" onClick={this.handleReset} className="btn btn-primary" style={{margin: 10}}>Reset</Button>
+              </form>
             <hr/>
             <textarea name="body"
             disabled={true}
             value={this.state.text_field}
-            style={{width: 600, height: 200, borderRadius: 5}}/>
+            style={{width: '100%', height: 200, borderRadius: 5, fontSize: 12}}/>
         </div>
       );
   }
