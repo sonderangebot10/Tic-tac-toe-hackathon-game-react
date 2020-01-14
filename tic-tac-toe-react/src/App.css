@@ -4,7 +4,6 @@
 
 .App-header {
   background-image: linear-gradient(#3e4450, #282c34);
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

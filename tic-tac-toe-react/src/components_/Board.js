@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { CssBaseline } from '@material-ui/core';
-//import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-//import $ from 'jquery';
 
 class Board extends Component {
   constructor(props){
@@ -130,7 +127,7 @@ class Board extends Component {
   render() {
     const { port1, port2, playing, speed, numberG } = this.state;
     return (
-        <div class="container" style={{marginTop: 20, marginBottom: 20, width: 800, color: 'white', fontSize: 25, fontWeight:'bold'}}>
+        <div class="container" style={{marginTop: 20, marginBottom: 20, color: 'white', fontSize: 25, fontWeight:'bold'}}>
           <div class="row">
             <div class="col-4 text-center">
               Player X <div/>{this.state.wins[0]}
