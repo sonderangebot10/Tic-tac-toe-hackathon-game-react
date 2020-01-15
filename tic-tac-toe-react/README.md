@@ -5,7 +5,21 @@ This is a concept hackathon type game. Tic-tac-toe is a solved game, thereby it 
 
 ### `The game`
 
-Idea behind this project is to help people understand and learn to develop certain algorithms in a competitive way with your colleagues or friends. The way this works, is two people create their own servers which listen to different ports. Doesn't matter which language, what frameworks or whatever. One can use Node and the other Spring-boot for example. Then this game-server sends json information about the game (in this case the board and who's turn it is) and the people have to respond with their move. Objective is for a player to beat the other player. Various parameters help to decide who's code is better, for example multiple games can be played and the the player with the most wins might be considered superior.
+Idea behind this project is to help people understand and learn to develop certain algorithms in a competitive way with your colleagues or friends.  
+The way this works, is two people create their own servers which listen to different ports. Doesn't matter which language, what frameworks or whatever. One can use Node and the other Spring-boot, for example. Then this game-server sends json information about the game (in this case the board and who's turn it is) and the people have to respond with their move. Objective is for a player to beat the other player. Various parameters help to decide who's code is better, for example multiple games can be played and the the player with the most wins might be considered superior.
+
+### `Architecture`
+
+[architecture.svg]
+
+### `JSON information`
+
+As mention previously, information is sent, for example as `{ me: 1, turn: 1, board: [0, 0, 1, 2, 2, 0, 0, 1] }` which would translate to a board looking as:
+[board_example]
+
+`me` defines what is your turn and `turn` which turn is it.
+
+The person has to respond with `{cell: cell_nr}`, where `cell_nr` is the number of the cell player want to place it on (0 - 8).
 
 ### `How To`
 
