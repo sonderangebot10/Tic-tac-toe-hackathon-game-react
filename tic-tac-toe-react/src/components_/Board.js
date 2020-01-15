@@ -129,13 +129,14 @@ class Board extends Component {
     this.setState({turn: Math.floor((Math.random() * 2) + 1), playing: false, wins: [0, 0], numberG: this.numberG_, text_field: ''});
   }
 
-  //pauses the games activity
+  //pauses only the games activity
   pause() {
     clearInterval(this.interval);
   }
 
-  //resets the only the game state
+  //resets the game state
   reset() {
+    clearInterval(this.interval);
     this.setState({board: [0, 0, 0, 0, 0, 0, 0, 0, 0]});
     this.setState({turn: Math.floor((Math.random() * 2) + 1)});
   }
