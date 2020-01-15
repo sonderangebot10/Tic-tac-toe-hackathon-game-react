@@ -59,7 +59,7 @@ class Board extends Component {
             this.state.wins[this.state.turn - 1] = this.state.wins[this.state.turn - 1] + 1;
             this.setState({text_field: this.state.text_field + 'Player ' + this.state.turn + ' has won!' + '\n'})
             this.pause();
-            setTimeout(() => {
+            this.timeout = setTimeout(() => {
               this.reset();
 
             if(this.state.numberG > 0) {
@@ -75,7 +75,7 @@ class Board extends Component {
             this.setState({numberG: this.state.numberG - 1})
             this.setState({text_field: this.state.text_field + 'Noone won.' + '\n'});
             this.pause();
-            setTimeout(() => {
+            this.timeout = setTimeout(() => {
               this.reset();
 
             if(this.state.numberG > 0) {
@@ -137,6 +137,7 @@ class Board extends Component {
   //resets the game state
   reset() {
     clearInterval(this.interval);
+    clearTimeout(this.timeout);
     this.setState({board: [0, 0, 0, 0, 0, 0, 0, 0, 0]});
     this.setState({turn: Math.floor((Math.random() * 2) + 1)});
   }
