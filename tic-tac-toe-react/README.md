@@ -3,7 +3,7 @@
 **Note**  
 This is a concept hackathon type game. Tic-tac-toe is a solved game, thereby it is not ideal for real life usage, since there is a specific technique for a player never to lose. For a proper experience, the game should be open-world type and not contain a specific strategy that would guarantee a win. For example, [Catan](https://www.catan.com/) or [Ticket to Ride](https://www.daysofwonder.com/tickettoride/en/) would be ideal, since it is completely open, yet well contained game with limited moves and more than two people can play.
 
-### `The game`
+### `The Game`
 
 Idea behind this project is to help people understand and learn to develop certain algorithms in a competitive way with your colleagues or friends.  
 The way this works, is two people create their own servers which listen to different ports. Does not matter which programming language, what frameworks or whatever. One can use `Node` and the other `Spring-boot`, for example. Then this game-server sends json information about the game (in this case the board and who's turn it is) and the people have to respond with their move.   
@@ -12,6 +12,8 @@ Objective is for a player to beat the other player. Various parameters help to d
 ### `Architecture`
   
 [architecture.svg]
+![Alt text](https://github.com/sonderangebot10/Tic-tac-toe-hackathon-game-react/blob/master/tic-tac-toe-react/src/artwork_/architecture.svg)
+<img src="https://github.com/sonderangebot10/Tic-tac-toe-hackathon-game-react/blob/master/tic-tac-toe-react/src/artwork_/architecture.svg">
 
 ### `JSON information`
 
