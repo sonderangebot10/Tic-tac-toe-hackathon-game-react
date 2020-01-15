@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import P5Wrapper from 'react-p5-wrapper';
+import sketch from './sketch'
 
 class Board extends Component {
   constructor(props){
@@ -24,6 +26,7 @@ class Board extends Component {
     this.reset = this.reset.bind(this);
     this.send_request = this.send_request.bind(this);
     this.play = this.play.bind(this);
+    this.pause = this.pause.bind(this);
   }
 
   componentDidMount() {
@@ -45,7 +48,7 @@ class Board extends Component {
     play() {
     const { port1, port2 } = this.state;
     let participants = [port1, port2];
-      this.interval = setInterval(async () => {
+    this.interval = setInterval(async () => {
 
         //send request and await response
         await this.send_request(this.state.turn, this.state.board, participants[this.state.turn - 1]);
@@ -55,22 +58,31 @@ class Board extends Component {
             this.setState({numberG: this.state.numberG - 1})
             this.state.wins[this.state.turn - 1] = this.state.wins[this.state.turn - 1] + 1;
             this.setState({text_field: this.state.text_field + 'Player ' + this.state.turn + ' has won!' + '\n'})
-            this.reset();
+            this.pause();
+            setTimeout(() => {
+              this.reset();
 
             if(this.state.numberG > 0) {
               this.play();
             }
+          
+          }, this.state.speed);
+            
         }
 
         //if cells are full
         else if(!this.state.board.includes(0)) {
             this.setState({numberG: this.state.numberG - 1})
             this.setState({text_field: this.state.text_field + 'Noone won.' + '\n'});
-            this.reset();
+            this.pause();
+            setTimeout(() => {
+              this.reset();
 
             if(this.state.numberG > 0) {
               this.play();
             }
+          
+          }, this.state.speed);
         }
 
         (this.state.turn === 1) ? this.setState({turn: 2}) : this.setState({turn: 1});
@@ -117,9 +129,13 @@ class Board extends Component {
     this.setState({turn: Math.floor((Math.random() * 2) + 1), playing: false, wins: [0, 0], numberG: this.numberG_, text_field: ''});
   }
 
+  //pauses the games activity
+  pause() {
+    clearInterval(this.interval);
+  }
+
   //resets the only the game state
   reset() {
-    clearInterval(this.interval);
     this.setState({board: [0, 0, 0, 0, 0, 0, 0, 0, 0]});
     this.setState({turn: Math.floor((Math.random() * 2) + 1)});
   }
@@ -128,6 +144,7 @@ class Board extends Component {
     const { port1, port2, playing, speed, numberG } = this.state;
     return (
         <div class="container" style={{marginTop: 20, marginBottom: 20, color: 'white', fontSize: 25, fontWeight:'bold'}}>
+          <head><script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script></head>
           <div class="row">
             <div class="col-4 text-center">
               Player X <div/>{this.state.wins[0]}
@@ -143,11 +160,13 @@ class Board extends Component {
           
           <hr/>
           <div style={{fontSize: 60, WebkitUserSelect:'none'}}>
-            {this.state.board[0] + ' ' + this.state.board[1] + ' ' + this.state.board[2]}
+            {/* {this.state.board[0] + ' ' + this.state.board[1] + ' ' + this.state.board[2]}
             <div/>
             {this.state.board[3] + ' ' + this.state.board[4] + ' ' + this.state.board[5]}
             <div/>
-            {this.state.board[6] + ' ' + this.state.board[7] + ' ' + this.state.board[8]}
+            {this.state.board[6] + ' ' + this.state.board[7] + ' ' + this.state.board[8]} */}
+            <P5Wrapper sketch={sketch} board={this.state.board}></P5Wrapper>
+
           </div>
           <hr/>
             <form name="form" onSubmit={this.handleSubmit} style={{fontSize: 14}}>
