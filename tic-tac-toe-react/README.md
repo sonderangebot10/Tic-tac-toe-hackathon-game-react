@@ -1,4 +1,4 @@
-## Tic Tac Toe Hackathon
+## Tic Tac Toe Hackathon Game
 
 **Note**  
 This is a concept hackathon type game. Tic-tac-toe is a solved game, thereby it is not ideal for real life usage, since there is a specific technique for a player never to lose. For a proper experience, the game should be open-world type and not contain a specific strategy that would guarantee a win. For example, [Catan](https://www.catan.com/) or [Ticket to Ride](https://www.daysofwonder.com/tickettoride/en/) would be ideal, since it is completely open, yet well contained game with limited moves and more than two people can play.
