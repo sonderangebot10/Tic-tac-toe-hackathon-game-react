@@ -26,7 +26,7 @@ export default function sketch(p){
         if(canvas) {
             p.noFill();
             p.strokeWeight(5);
-            p.clear();
+            if(newProps.board.every(checkCells)) p.clear();
             for(let i = 0; i < 9; i++) {
                 let [x,y] = board[i];
                 if(newProps.board[i] == 1) {
@@ -39,6 +39,8 @@ export default function sketch(p){
             }
         }
     }
+}
 
-    //cell 0 = 170;220
+function checkCells(cell) {
+    return cell == 0;
 }
