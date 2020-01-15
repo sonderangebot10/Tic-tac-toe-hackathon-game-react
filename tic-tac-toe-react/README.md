@@ -12,8 +12,8 @@ Objective is for a player to beat the other player. Various parameters help to d
 ### `Architecture`
   
 [architecture.svg]
-![Alt text](https://github.com/sonderangebot10/Tic-tac-toe-hackathon-game-react/blob/master/tic-tac-toe-react/src/artwork_/architecture.svg)
-<img src="https://github.com/sonderangebot10/Tic-tac-toe-hackathon-game-react/blob/master/tic-tac-toe-react/src/artwork_/architecture.svg">
+![Alt text](https://github.com/sonderangebot10/Tic-tac-toe-hackathon-game-react/blob/master/tic-tac-toe-react/src/artwork_/architecture.png)
+<img src="https://github.com/sonderangebot10/Tic-tac-toe-hackathon-game-react/blob/master/tic-tac-toe-react/src/artwork_/architecture.pngg">
 
 ### `JSON information`
 
