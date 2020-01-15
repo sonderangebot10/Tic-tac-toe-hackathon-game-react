@@ -55,9 +55,8 @@ class Board extends Component {
 
         //check if anyone has won
         if(hasWon(this.state.board, this.state.turn)) {
-            this.setState({numberG: this.state.numberG - 1})
             this.state.wins[this.state.turn - 1] = this.state.wins[this.state.turn - 1] + 1;
-            this.setState({text_field: this.state.text_field + 'Player ' + this.state.turn + ' has won!' + '\n'})
+            this.setState({numberG: this.state.numberG - 1, text_field: this.state.text_field + 'Player ' + this.state.turn + ' has won!' + '\n'})
             this.pause();
             this.timeout = setTimeout(() => {
               this.reset();
@@ -65,15 +64,12 @@ class Board extends Component {
             if(this.state.numberG > 0) {
               this.play();
             }
-          
           }, this.state.speed);
-            
         }
 
         //if cells are full
         else if(!this.state.board.includes(0)) {
-            this.setState({numberG: this.state.numberG - 1})
-            this.setState({text_field: this.state.text_field + 'Noone won.' + '\n'});
+            this.setState({numberG: this.state.numberG - 1, text_field: this.state.text_field + 'Noone won.' + '\n'});
             this.pause();
             this.timeout = setTimeout(() => {
               this.reset();
@@ -81,12 +77,10 @@ class Board extends Component {
             if(this.state.numberG > 0) {
               this.play();
             }
-          
           }, this.state.speed);
         }
 
         (this.state.turn === 1) ? this.setState({turn: 2}) : this.setState({turn: 1});
-
     }, this.state.speed);
     }
 
@@ -168,7 +162,6 @@ class Board extends Component {
             <div/>
             {this.state.board[6] + ' ' + this.state.board[7] + ' ' + this.state.board[8]} */}
             <P5Wrapper sketch={sketch} board={this.state.board}></P5Wrapper>
-
           </div>
           <hr/>
             <form name="form" onSubmit={this.handleSubmit} style={{fontSize: 14}}>
