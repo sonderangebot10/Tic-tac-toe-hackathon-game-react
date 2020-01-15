@@ -23,7 +23,7 @@ As mention previously, information is sent, for example as `{ me: 1, turn: 1, bo
   
 or  
   
-[board_example]
+![board_example](https://github.com/sonderangebot10/Tic-tac-toe-hackathon-game-react/blob/master/tic-tac-toe-react/src/artwork_/board_example.png)
 
 `me` defines what is your turn and `turn` which turn is it.
 
@@ -36,8 +36,8 @@ The person has to respond with `{cell: cell_nr}`, where `cell_nr` is the number 
 ### `How To`
 
 1. Run your game servers (in this case examplary code can be found in `/test_example` folder). Although this might be written in any language, yet must listen to different ports.
-2. This game server is built with React and runs on the port 3000. Run it with npm start command, open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-[PIC]
+2. This game server is built with React and runs on the port 3000. Run it with npm start command, open [http://localhost:3000](http://localhost:3000) to view it in the browser.  
+![web_app](https://github.com/sonderangebot10/Tic-tac-toe-hackathon-game-react/blob/master/tic-tac-toe-react/src/artwork_/web_app.png)
 3. Once all the servers are running, input the correct ports to send information to (in this case, 3001 and 3002) and select the speed of requests in ms (recommended 50 to 1000ms) and how many games you wish to be played.
 4. Click play and watch the results. Later try to compare the codes and discuss how the logic might be improved.
 
