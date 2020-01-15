@@ -10,13 +10,19 @@ The way this works, is two people create their own servers which listen to diffe
 Objective is for a player to beat the other player. Various parameters help to decide who's code is better, for example multiple games can be played and the the player with the most wins might be considered superior.
 
 ### `Architecture`
-  
+
 ![Architecture](https://github.com/sonderangebot10/Tic-tac-toe-hackathon-game-react/blob/master/tic-tac-toe-react/src/artwork_/architecture.png)
 
 ### `JSON information`
 
-As mention previously, information is sent, for example as `{ me: 1, turn: 1, board: [0, 0, 1, 2, 2, 0, 0, 1] }` which would translate to a board looking as:  
+As mention previously, information is sent, for example as `{ me: 1, turn: 1, board: [0, 0, 1, 2, 2, 0, 0, 1, 0] }` which would translate to a board looking as:  
 
+`[0, 0, 1]`  
+`[2, 2, 0]`  
+`[0, 1, 0]`  
+  
+or  
+  
 [board_example]
 
 `me` defines what is your turn and `turn` which turn is it.
