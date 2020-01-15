@@ -43,4 +43,4 @@ The person has to respond with `{cell: cell_nr}`, where `cell_nr` is the number 
 
 ### `Future plans`
 
-This is only a concept version. In the future I am planning on developing more difficult games with more than 2+ players game support and more intuitive controls.
+This is only a concept version. Future plans might include developing more difficult games with more than 2+ players game support and more intuitive controls.
