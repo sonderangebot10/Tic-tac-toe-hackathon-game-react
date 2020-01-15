@@ -1,68 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Tic Tac Toe Hackathon
 
-## Available Scripts
+**Note**  
+This is a concept hackathon type game. Tic-tac-toe is a solved game, thereby it is not ideal for real life usage, since there is a specific technique for a player never to lose. For a proper experience, the game should be open-world type and not contain a specific strategy that would guarantee a win. For example, [Catan](https://www.catan.com/) or [Ticket to Ride](https://www.daysofwonder.com/tickettoride/en/) would be ideal, since it is completely open, yet well contained game with limited moves and more than two people can play.
 
-In the project directory, you can run:
+### `The game`
 
-### `yarn start`
+Idea behind this project is to help people understand and learn to develop certain algorithms in a competitive way with your colleagues or friends.  
+The way this works, is two people create their own servers which listen to different ports. Does not matter which programming language, what frameworks or whatever. One can use `Node` and the other `Spring-boot`, for example. Then this game-server sends json information about the game (in this case the board and who's turn it is) and the people have to respond with their move.   
+Objective is for a player to beat the other player. Various parameters help to decide who's code is better, for example multiple games can be played and the the player with the most wins might be considered superior.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `Architecture`
+  
+[architecture.svg]
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### `JSON information`
 
-### `yarn test`
+As mention previously, information is sent, for example as `{ me: 1, turn: 1, board: [0, 0, 1, 2, 2, 0, 0, 1] }` which would translate to a board looking as:  
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[board_example]
 
-### `yarn build`
+`me` defines what is your turn and `turn` which turn is it.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The person has to respond with `{cell: cell_nr}`, where `cell_nr` is the number of the cell player want to place it on (0 - 8). This is the board numeration:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+`[0, 1, 2]`  
+`[3, 4, 5]`  
+`[6, 7, 8]`  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `How To`
 
-### `yarn eject`
+1. Run your game servers (in this case examplary code can be found in `/test_example` folder). Although this might be written in any language, yet must listen to different ports.
+2. This game server is built with React and runs on the port 3000. Run it with npm start command, open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[PIC]
+3. Once all the servers are running, input the correct ports to send information to (in this case, 3001 and 3002) and select the speed of requests in ms (recommended 50 to 1000ms) and how many games you wish to be played.
+4. Click play and watch the results. Later try to compare the codes and discuss how the logic might be improved.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `Future plans`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This is only a concept version. In the future I am planning on developing more difficult games with more than 2+ players game support and more intuitive controls.
